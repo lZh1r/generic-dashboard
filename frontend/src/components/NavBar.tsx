@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import {Button} from "@/components/ui/button";
 import {useTheme} from "next-themes";
+import {SidebarTrigger} from "@/components/ui/sidebar";
 
 function NavBar() {
 
@@ -20,7 +21,7 @@ function NavBar() {
 
     return (
         <nav className='p-4 flex items-center justify-between'>
-            collapse
+            <SidebarTrigger/>
             <div className='flex items-center gap-4'>
                 <Link href={'/'}>Dashboard</Link>
                 <DropdownMenu>
