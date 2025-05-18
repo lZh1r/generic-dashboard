@@ -10,7 +10,7 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import {Button} from "@/components/ui/button";
 import {useTheme} from "next-themes";
 import {SidebarTrigger} from "@/components/ui/sidebar";
