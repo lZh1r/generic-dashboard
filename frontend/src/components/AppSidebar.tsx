@@ -46,7 +46,7 @@ const items = [
 function AppSidebar() {
     return (
         <Sidebar collapsible="icon">
-            <SidebarHeader>
+            <SidebarHeader className="py-4">
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton asChild>
