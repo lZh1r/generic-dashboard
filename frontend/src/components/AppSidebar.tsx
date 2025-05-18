@@ -1,19 +1,20 @@
 "use client";
 
-import {BicepsFlexed, Calendar, Home, Inbox, Search, Settings} from "lucide-react";
+import {BicepsFlexed, Calendar, ChevronDown, Home, Inbox, Plus, Projector, Search, Settings} from "lucide-react";
 import {
     Sidebar,
     SidebarContent,
-    SidebarGroup,
+    SidebarGroup, SidebarGroupAction,
     SidebarGroupContent,
     SidebarGroupLabel,
     SidebarHeader,
-    SidebarMenu,
+    SidebarMenu, SidebarMenuBadge,
     SidebarMenuButton,
     SidebarMenuItem,
     SidebarSeparator
 } from "@/components/ui/sidebar";
 import Link from "next/link";
+import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@/components/ui/collapsible";
 
 const items = [
     {
@@ -73,11 +74,47 @@ function AppSidebar() {
                                                 <span>{i.title}</span>
                                             </a>
                                         </SidebarMenuButton>
+                                        {
+                                            i.title === "Inbox" &&
+                                            <SidebarMenuBadge>99+</SidebarMenuBadge>
+                                        }
                                     </SidebarMenuItem>))
                             }
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
+                <Collapsible className="group/collapsible">
+                    <SidebarGroup>
+                        <SidebarGroupLabel asChild>
+                            <CollapsibleTrigger>
+                                Projects <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180"/>
+                            </CollapsibleTrigger>
+                        </SidebarGroupLabel>
+                        <CollapsibleContent>
+                            <SidebarGroupContent>
+                                <SidebarMenu>
+                                    <SidebarMenuItem>
+                                        <SidebarMenuButton asChild>
+                                            <Link href="/#">
+                                                <Plus/>
+                                                Create Project
+                                            </Link>
+                                        </SidebarMenuButton>
+                                    </SidebarMenuItem>
+                                    <SidebarMenuItem>
+                                        <SidebarMenuButton asChild>
+                                            <Link href="/#">
+                                                <Projector/>
+                                                See All Projects
+                                            </Link>
+                                        </SidebarMenuButton>
+                                    </SidebarMenuItem>
+                                </SidebarMenu>
+                            </SidebarGroupContent>
+                        </CollapsibleContent>
+                    </SidebarGroup>
+                </Collapsible>
+
             </SidebarContent>
         </Sidebar>
     );
