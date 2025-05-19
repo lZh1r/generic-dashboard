@@ -10,7 +10,7 @@ import {
     SidebarHeader,
     SidebarMenu, SidebarMenuBadge,
     SidebarMenuButton,
-    SidebarMenuItem,
+    SidebarMenuItem, SidebarMenuSub,
     SidebarSeparator
 } from "@/components/ui/sidebar";
 import Link from "next/link";
@@ -92,7 +92,7 @@ function AppSidebar() {
                         </SidebarGroupLabel>
                         <CollapsibleContent>
                             <SidebarGroupContent>
-                                <SidebarMenu>
+                                <SidebarMenuSub>
                                     <SidebarMenuItem>
                                         <SidebarMenuButton asChild>
                                             <Link href="/#">
@@ -109,7 +109,7 @@ function AppSidebar() {
                                             </Link>
                                         </SidebarMenuButton>
                                     </SidebarMenuItem>
-                                </SidebarMenu>
+                                </SidebarMenuSub>
                             </SidebarGroupContent>
                         </CollapsibleContent>
                     </SidebarGroup>
