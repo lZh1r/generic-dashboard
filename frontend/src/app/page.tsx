@@ -1,6 +1,6 @@
-import AppBarChart from "@/components/AppBarChart";
-import AppAreaChart from "@/components/AppAreaChart";
-import AppPieChart from "@/components/AppPieChart";
+import AppBarChart from "@/components/charts/AppBarChart";
+import AppAreaChart from "@/components/charts/AppAreaChart";
+import AppPieChart from "@/components/charts/AppPieChart";
 
 export default function Home() {
     return (
