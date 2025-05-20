@@ -24,12 +24,13 @@ const tasks = [
 function TodoList() {
 
     const [date, setDate] = useState<Date | undefined>(new Date());
+    const [open, setOpen] = useState(false);
 
     return (
         <div>
             <div className="flex justify-between">
                 <h1 className="text-lg font-medium">Todo list</h1>
-                <Popover>
+                <Popover open={open} onOpenChange={setOpen}>
                     <PopoverTrigger className="mb-4" asChild>
                         <Button variant="outline">
                             <Calendar1/>
@@ -40,7 +41,10 @@ function TodoList() {
                         <Calendar
                             mode="single"
                             selected={date}
-                            onSelect={setDate}
+                            onSelect={(date) => {
+                                    setDate(date);
+                                    setOpen(false);
+                            }}
                             className="rounded-md border shadow"
                         />
                     </PopoverContent>
