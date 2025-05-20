@@ -33,8 +33,10 @@ function UserStatus() {
                                 Feel free to express yourself here!
                             </SheetDescription>
                         </SheetHeader>
-                        <div>
-                            <Textarea value={textAreaContent} onChange={(e) => setTextAreaContent(e.target.value)} maxLength={100}/>
+                        <div className='p-2'>
+                            <Textarea className='resize-none'
+                                      value={textAreaContent}
+                                      onChange={(e) => setTextAreaContent(e.target.value)} maxLength={100}/>
                         </div>
                         <SheetFooter>
                             <SheetClose asChild>
