@@ -2,6 +2,7 @@ import AppBarChart from "@/components/charts/AppBarChart";
 import AppAreaChart from "@/components/charts/AppAreaChart";
 import AppPieChart from "@/components/charts/AppPieChart";
 import CardList from "@/components/CardList";
+import TodoList from "@/components/TodoList";
 
 export default function Home() {
     return (
@@ -22,7 +23,7 @@ export default function Home() {
                 <AppAreaChart/>
             </div>
             <div className="rounded-2xl bg-primary-foreground p-4">
-                <p>Test</p>
+                <TodoList/>
             </div>
 
         </div>
