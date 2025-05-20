@@ -4,13 +4,15 @@ import {BicepsFlexed, Calendar, ChevronDown, Home, Inbox, Plus, Projector, Searc
 import {
     Sidebar,
     SidebarContent,
-    SidebarGroup, SidebarGroupAction,
+    SidebarGroup,
     SidebarGroupContent,
     SidebarGroupLabel,
     SidebarHeader,
-    SidebarMenu, SidebarMenuBadge,
+    SidebarMenu,
+    SidebarMenuBadge,
     SidebarMenuButton,
-    SidebarMenuItem, SidebarMenuSub,
+    SidebarMenuItem,
+    SidebarMenuSub,
     SidebarSeparator
 } from "@/components/ui/sidebar";
 import Link from "next/link";
