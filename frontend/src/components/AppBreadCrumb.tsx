@@ -8,26 +8,48 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
-import {useParams} from "next/navigation";
+import {usePathname} from "next/navigation";
 
 function AppBreadCrumb() {
 
-    const params = useParams<{username:string}>();
+    const path = usePathname().split('/');
+    const bcChildren = [
+        <BreadcrumbItem key="home">
+            <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+        </BreadcrumbItem>,
+        <BreadcrumbSeparator key="initsep"/>
+    ];
+
+    function capitalize(str: string) {
+        return String(str).charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    if (path.length > 2) {
+        for (let i = 1; i < path.length - 1; i++) {
+            console.log(path[i]);
+            const current = path[i];
+            bcChildren.push(
+                <BreadcrumbItem key={`element${i}`}>
+                    <BreadcrumbLink href={`/${current}`}>{capitalize(current)}</BreadcrumbLink>
+                </BreadcrumbItem>
+
+            );
+            bcChildren.push(<BreadcrumbSeparator key={`separator${i}`}/>);
+        }
+    }
+
+    bcChildren.push(
+        <BreadcrumbItem key="page">
+            <BreadcrumbPage>{capitalize(path[path.length - 1])}</BreadcrumbPage>
+        </BreadcrumbItem>
+    );
 
     return (
         <Breadcrumb>
             <BreadcrumbList>
-                <BreadcrumbItem>
-                    <BreadcrumbLink href='/'>Home</BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator/>
-                <BreadcrumbItem>
-                    <BreadcrumbLink href='/user'>Users</BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator/>
-                <BreadcrumbItem>
-                    <BreadcrumbPage>{params.username}</BreadcrumbPage>
-                </BreadcrumbItem>
+                {
+                    bcChildren
+                }
             </BreadcrumbList>
         </Breadcrumb>
     );
