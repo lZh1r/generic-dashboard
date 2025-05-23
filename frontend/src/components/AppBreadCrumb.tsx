@@ -9,13 +9,18 @@ import {
     BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 import {usePathname} from "next/navigation";
+import Link from "next/link";
 
 function AppBreadCrumb() {
 
     const path = usePathname().split('/');
     const bcChildren = [
         <BreadcrumbItem key="home">
-            <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+            <BreadcrumbLink asChild>
+                <Link href='/'>
+                    Home
+                </Link>
+            </BreadcrumbLink>
         </BreadcrumbItem>,
         <BreadcrumbSeparator key="initsep"/>
     ];
@@ -30,7 +35,11 @@ function AppBreadCrumb() {
             const current = path[i];
             bcChildren.push(
                 <BreadcrumbItem key={`element${i}`}>
-                    <BreadcrumbLink href={`/${current}`}>{capitalize(current)}</BreadcrumbLink>
+                    <BreadcrumbLink asChild>
+                        <Link href={`/${current}`}>
+                            {capitalize(current)}
+                        </Link>
+                    </BreadcrumbLink>
                 </BreadcrumbItem>
 
             );
