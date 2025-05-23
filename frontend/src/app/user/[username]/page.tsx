@@ -8,7 +8,7 @@ function Page() {
 
     return (
         <div>
-            <div className="mt-4 flex flex-col xl:flex-row gap-8">
+            <div className="mt-4 flex flex-col xl:flex-row gap-8 mb-4">
                 <div className="w-full xl:w-1/3 space-y-5">
                     <div className="rounded-lg bg-primary-foreground p-4">
                         <h1 className="text-lg font-medium">User Badges</h1>
