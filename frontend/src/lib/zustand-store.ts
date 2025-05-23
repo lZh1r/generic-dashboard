@@ -12,7 +12,7 @@ export const zustandStore = create<userInfo & storeActions>((set) => ({
     role: "admin",
     updateUserInfo: (newInfo) => set({
         username: newInfo.username,
-        email: newInfo.username,
+        email: newInfo.email,
         workplace: newInfo.workplace,
         role: newInfo.role
     })
