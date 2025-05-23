@@ -1,6 +1,6 @@
 'use client';
 
-import {useParams} from "next/navigation";
+import {redirect, useParams} from "next/navigation";
 import {Badge} from "@/components/ui/badge";
 import {
     Sheet,
@@ -13,14 +13,15 @@ import {
     SheetTrigger
 } from "@/components/ui/sheet";
 import {Button} from "@/components/ui/button";
-import { z } from "zod";
+import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {useForm} from "react-hook-form";
 import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Input} from "@/components/ui/input";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 import {userInfo} from "@/lib/user-info";
+import {zustandStore} from "@/lib/zustand-store";
 
 const formSchema = z.object({
     username: z.string().min(3, {message: "Username must be at least 3 characters long!"})
@@ -38,13 +39,27 @@ function UserInfo() {
 
     const params= useParams<{ username: string }>();
 
+    const isLoggedUser = params.username === zustandStore.getState().username;
+
+    const updateUserInfo = zustandStore.getState().updateUserInfo;
+
+
     //should be fetched from db
-    const [userData, setUserData] = useState<userInfo>({
-        username: params.username,
-        email: "123123@gmail.com",
-        workplace: "NASA",
-        role: "admin"
-    });
+    const [userData, setUserData] = useState<userInfo>(
+        isLoggedUser ? zustandStore.getState() :
+        {
+            username: params.username,
+            email: "123123@gmail.com",
+            workplace: "NASA",
+            role: "admin"
+        }
+    );
+
+    useEffect(() => {
+        if (isLoggedUser) {
+            setUserData(zustandStore.getState());
+        }
+    }, []);
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -58,6 +73,12 @@ function UserInfo() {
 
     function onSubmit(values: z.infer<typeof formSchema>) {
         setUserData(values);
+        if (isLoggedUser) {
+            updateUserInfo(values);
+            if (values.username !== userData.username) {
+                redirect(`/user/${values.username}`);
+            }
+        }
     }
 
     return (
