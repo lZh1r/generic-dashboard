@@ -20,6 +20,7 @@ import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, Form
 import {useState} from "react";
 import {Input} from "@/components/ui/input";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
+import {userInfo} from "@/lib/user-info";
 
 const formSchema = z.object({
     username: z.string().min(3, {message: "Username must be at least 3 characters long!"})
@@ -28,13 +29,6 @@ const formSchema = z.object({
     workplace: z.string().max(100),
     role: z.enum(["admin", "user"]),
 });
-
-interface userInfo {
-    username: string,
-    email: string,
-    workplace: string
-    role: "user" | "admin"
-}
 
 function capitalize(str: string) {
     return String(str).charAt(0).toUpperCase() + str.slice(1);
