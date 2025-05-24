@@ -3,6 +3,7 @@ import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/ui/hov
 import {BadgeCheck, BadgeDollarSign, BadgeHelp} from "lucide-react";
 import UserInfo from "@/components/userpage/UserInfo";
 import UserStatus from "@/components/userpage/UserStatus";
+import UserCard from "@/components/userpage/UserCard";
 
 function Page() {
 
@@ -53,10 +54,8 @@ function Page() {
                         <CardList title="Popular Content"/>
                     </div>
                 </div>
-                <div className="w-full xl:w-2/3 ">
-                    <div className="rounded-lg bg-primary-foreground p-4">
-
-                    </div>
+                <div className="w-full xl:w-2/3 space-y-5">
+                    <UserCard/>
                     <div className="rounded-lg bg-primary-foreground p-4">
 
                     </div>
