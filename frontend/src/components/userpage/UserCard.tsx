@@ -6,6 +6,9 @@ import {useParams} from "next/navigation";
 import {capitalize} from "@/lib/lib";
 import {ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent} from "@/components/ui/chart";
 import {CartesianGrid, LabelList, Line, LineChart, XAxis} from "recharts";
+import {Card, CardContent, CardFooter, CardTitle} from "@/components/ui/card";
+import Image from "next/image";
+import {Badge} from "@/components/ui/badge";
 
 const chartData = [
     { month: "January", sales: 186},
@@ -54,6 +57,24 @@ function UserCard() {
                     Suspendisse tempus mollis tellus, a porta arcu ullamcorper vitae. Quisque
                     condimentum sem in sollicitudin euismod.
                 </p>
+            </div>
+            <div className="rounded-lg bg-primary-foreground p-4 space-y-4">
+                <h1 className="text-lg font-medium">Product of Choice</h1>
+                <Card className="flex-row items-center justify-between gap-4 p-4">
+                    <div className="w-12 h-12 rounded-sm relative overflow-hidden">
+                        <Image sizes="100,100" src="https://cdn-icons-png.freepik.com/256/9345/9345668.png?ga=GA1.1.194998336.1747677868&semt=ais_hybrid"
+                               alt="C Programming Language" fill className="object-cover"/>
+                    </div>
+                    <CardContent className="p-0 flex-1">
+                        <CardTitle className="text-sm font-normal">
+                            C Programming Language
+                        </CardTitle>
+                        <Badge variant="secondary">Coding</Badge>
+                    </CardContent>
+                    <CardFooter className="p-0">
+                        {1200/1000}K
+                    </CardFooter>
+                </Card>
             </div>
             <div className="rounded-lg bg-primary-foreground p-4 space-y-4">
                 <h1 className="text-lg font-medium">Sales Graph</h1>
