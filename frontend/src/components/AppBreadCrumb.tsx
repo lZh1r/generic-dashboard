@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import {usePathname} from "next/navigation";
 import Link from "next/link";
+import {capitalize} from "@/lib/lib";
 
 function AppBreadCrumb() {
 
@@ -24,10 +25,6 @@ function AppBreadCrumb() {
         </BreadcrumbItem>,
         <BreadcrumbSeparator key="initsep"/>
     ];
-
-    function capitalize(str: string) {
-        return String(str).charAt(0).toUpperCase() + str.slice(1);
-    }
 
     if (path.length > 2) {
         for (let i = 1; i < path.length - 1; i++) {
