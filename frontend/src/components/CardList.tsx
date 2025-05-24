@@ -100,7 +100,7 @@ function CardList({title}: {title:string}) {
                 {list.map((item) =>
                     <Card key={item.id} className="flex-row items-center justify-between gap-4 p-4">
                         <div className="w-12 h-12 rounded-sm relative overflow-hidden">
-                            <Image src={item.image} alt={item.title} fill className="object-cover"/>
+                            <Image sizes="100,100" src={item.image} alt={item.title} fill className="object-cover"/>
                         </div>
                         <CardContent className="p-0 flex-1">
                             <CardTitle className="text-sm font-normal">
