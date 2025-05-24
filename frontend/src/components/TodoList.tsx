@@ -3,11 +3,6 @@
 import {ScrollArea} from "@/components/ui/scroll-area";
 import {Card, CardContent} from "@/components/ui/card";
 import {Checkbox} from "@/components/ui/checkbox";
-import {useState} from "react";
-import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
-import {Button} from "@/components/ui/button";
-import {formatDate} from "date-fns";
-import {Calendar1} from "lucide-react";
 
 const tasks = [
     'Do the thing',
@@ -21,9 +16,6 @@ const tasks = [
 ];
 
 function TodoList() {
-
-    const [date, setDate] = useState<Date | undefined>(new Date());
-    const [open, setOpen] = useState(false);
 
     return (
         <div>
