@@ -3,4 +3,5 @@ export interface userInfo {
     email: string,
     workplace: string
     role: "user" | "admin"
+    displayName: string
 }
