@@ -10,10 +10,12 @@ export const zustandStore = create<userInfo & storeActions>((set) => ({
     email: "john-verycool@email.com",
     workplace: "AI Dungeon",
     role: "admin",
-    updateUserInfo: (newInfo) => set({
+    displayName: "John Brown",
+    updateUserInfo: (newInfo) => set((state) => ({
+        ...state,
         username: newInfo.username,
         email: newInfo.email,
         workplace: newInfo.workplace,
         role: newInfo.role
-    })
+    }))
 }));
