@@ -54,12 +54,7 @@ function Page() {
                         <CardList title="Popular Content"/>
                     </div>
                 </div>
-                <div className="w-full xl:w-2/3 space-y-5">
-                    <UserCard/>
-                    <div className="rounded-lg bg-primary-foreground p-4">
-
-                    </div>
-                </div>
+                <UserCard/>
             </div>
         </div>
     );
