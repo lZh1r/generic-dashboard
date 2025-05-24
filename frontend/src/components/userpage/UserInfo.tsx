@@ -51,7 +51,8 @@ function UserInfo() {
             username: params.username,
             email: "123123@gmail.com",
             workplace: "NASA",
-            role: "admin"
+            role: "admin",
+            displayName: capitalize(params.username)
         }
     );
 
@@ -72,11 +73,12 @@ function UserInfo() {
     });
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-        setUserData(values);
+        const newData = {...userData, ...values};
+        setUserData(newData);
         if (isLoggedUser) {
-            updateUserInfo(values);
-            if (values.username !== userData.username) {
-                redirect(`/user/${values.username}`);
+            updateUserInfo(newData);
+            if (newData.username !== userData.username) {
+                redirect(`/user/${newData.username}`);
             }
         }
     }
