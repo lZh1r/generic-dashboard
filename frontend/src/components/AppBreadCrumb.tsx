@@ -14,6 +14,8 @@ import {capitalize} from "@/lib/lib";
 
 function AppBreadCrumb() {
 
+    //TODO: make it actually dynamic
+
     const path = usePathname().split('/');
     const bcChildren = [
         <BreadcrumbItem key="home">

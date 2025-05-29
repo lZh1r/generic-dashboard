@@ -1,6 +1,6 @@
 "use client";
 
-import {BicepsFlexed, Calendar, ChevronDown, Home, Inbox, Plus, Projector, Search, Settings} from "lucide-react";
+import {BicepsFlexed, ChevronDown, Home, Inbox, Plus, Projector, Search, Settings} from "lucide-react";
 import {
     Sidebar,
     SidebarContent,
