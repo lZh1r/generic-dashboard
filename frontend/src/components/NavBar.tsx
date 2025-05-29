@@ -64,7 +64,9 @@ function NavBar() {
                             </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
-                            <Settings className="mr-2" /> Settings
+                            <Link className="flex gap-4" href="/profile/settings">
+                                <Settings className="mr-2" /> Settings
+                            </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem variant={"destructive"}>
                             <LogOut className="mr-2" /> Log Out
