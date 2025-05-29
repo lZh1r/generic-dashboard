@@ -21,27 +21,22 @@ import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@/components/
 const items = [
     {
         title: "Home",
-        url: "#",
+        url: "/",
         icon: Home,
     },
     {
         title: "Inbox",
-        url: "#",
+        url: "/mail",
         icon: Inbox,
     },
     {
-        title: "Calendar",
-        url: "#",
-        icon: Calendar,
-    },
-    {
         title: "Search",
-        url: "#",
+        url: "/search",
         icon: Search,
     },
     {
         title: "Settings",
-        url: "#",
+        url: "/user/settings",
         icon: Settings,
     },
 ];
@@ -105,7 +100,7 @@ function AppSidebar() {
                                     </SidebarMenuItem>
                                     <SidebarMenuItem>
                                         <SidebarMenuButton asChild>
-                                            <Link href="/#">
+                                            <Link href="/projects">
                                                 <Projector/>
                                                 See All Projects
                                             </Link>
