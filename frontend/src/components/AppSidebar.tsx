@@ -1,6 +1,6 @@
 "use client";
 
-import {BicepsFlexed, ChevronDown, Home, Inbox, Plus, Projector, Search, Settings} from "lucide-react";
+import {BicepsFlexed, ChevronDown, Home, Inbox, Projector, Search, Settings} from "lucide-react";
 import {
     Sidebar,
     SidebarContent,
@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/sidebar";
 import Link from "next/link";
 import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@/components/ui/collapsible";
+import ProjectCreationDialog from "@/components/ProjectCreationDialog";
 
 const items = [
     {
@@ -91,12 +92,7 @@ function AppSidebar() {
                             <SidebarGroupContent>
                                 <SidebarMenuSub>
                                     <SidebarMenuItem>
-                                        <SidebarMenuButton asChild>
-                                            <Link href="/#">
-                                                <Plus/>
-                                                Create Project
-                                            </Link>
-                                        </SidebarMenuButton>
+                                        <ProjectCreationDialog/>
                                     </SidebarMenuItem>
                                     <SidebarMenuItem>
                                         <SidebarMenuButton asChild>
