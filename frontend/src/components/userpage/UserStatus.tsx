@@ -23,7 +23,7 @@ function UserStatus() {
             <div className="flex justify-between">
                 <h1 className="text-lg font-medium">Status</h1>
                 <Sheet>
-                    <SheetTrigger asChild>
+                    <SheetTrigger className="cursor-pointer" asChild>
                         <Button variant='outline'>Edit</Button>
                     </SheetTrigger>
                     <SheetContent>
@@ -40,7 +40,7 @@ function UserStatus() {
                         </div>
                         <SheetFooter>
                             <SheetClose asChild>
-                                <Button onClick={() => setStatus(textAreaContent)} type="submit">Save changes</Button>
+                                <Button className="cursor-pointer" onClick={() => setStatus(textAreaContent)} type="submit">Save changes</Button>
                             </SheetClose>
                         </SheetFooter>
                     </SheetContent>

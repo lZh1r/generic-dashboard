@@ -49,14 +49,14 @@ function ProjectCreationDialog() {
                         <div className="space-y-3">
                             <Label htmlFor="project-type">Category</Label>
                             <Select>
-                                <SelectTrigger>
+                                <SelectTrigger className="cursor-pointer">
                                     <SelectValue id="project-type" placeholder="Choose project category"/>
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value={ProjectCategories.CODING}>Coding</SelectItem>
-                                    <SelectItem value={ProjectCategories.TECH}>Tech</SelectItem>
-                                    <SelectItem value={ProjectCategories.AI}>AI</SelectItem>
-                                    <SelectItem value={ProjectCategories.OTHER}>Other</SelectItem>
+                                    <SelectItem className="cursor-pointer" value={ProjectCategories.CODING}>Coding</SelectItem>
+                                    <SelectItem className="cursor-pointer" value={ProjectCategories.TECH}>Tech</SelectItem>
+                                    <SelectItem className="cursor-pointer" value={ProjectCategories.AI}>AI</SelectItem>
+                                    <SelectItem className="cursor-pointer" value={ProjectCategories.OTHER}>Other</SelectItem>
                                 </SelectContent>
                             </Select>
                         </div>

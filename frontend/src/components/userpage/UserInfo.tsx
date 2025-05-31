@@ -87,14 +87,14 @@ function UserInfo() {
                 {/*TODO: put it into a separate page*/}
                 <Sheet>
                     <SheetTrigger asChild>
-                        <Button variant='outline'>Edit</Button>
+                        <Button className="cursor-pointer" variant='outline'>Edit</Button>
                     </SheetTrigger>
                     <SheetContent>
                         <SheetHeader>
-                            <SheetTitle>Editing Profile Info</SheetTitle>
+                            <SheetTitle className="mb-5">Editing Profile Info</SheetTitle>
                             <SheetDescription asChild>
                                 <Form {...form}>
-                                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
+                                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
                                         <FormField control={form.control} name="username"
                                                    render={({field}) => (
                                                        <FormItem>
@@ -141,13 +141,13 @@ function UserInfo() {
                                                            <FormLabel>User Role</FormLabel>
                                                            <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                                <FormControl>
-                                                                   <SelectTrigger>
+                                                                   <SelectTrigger className="cursor-pointer">
                                                                        <SelectValue placeholder="Pick a role for this user" />
                                                                    </SelectTrigger>
                                                                </FormControl>
                                                                <SelectContent>
-                                                                   <SelectItem value="user">User</SelectItem>
-                                                                   <SelectItem value="admin">Admin</SelectItem>
+                                                                   <SelectItem className="cursor-pointer" value="user">User</SelectItem>
+                                                                   <SelectItem className="cursor-pointer" value="admin">Admin</SelectItem>
                                                                </SelectContent>
                                                            </Select>
                                                            <FormDescription>
@@ -156,14 +156,14 @@ function UserInfo() {
                                                            <FormMessage/>
                                                        </FormItem>
                                                    )}/>
-                                        <Button>Submit</Button>
+                                        <Button className="cursor-pointer">Submit</Button>
                                     </form>
                                 </Form>
                             </SheetDescription>
                         </SheetHeader>
                         <SheetFooter>
                             <SheetClose asChild>
-                                <Button type="submit">Done</Button>
+                                <Button className="cursor-pointer" type="submit">Done</Button>
                             </SheetClose>
                         </SheetFooter>
                     </SheetContent>

@@ -84,7 +84,7 @@ function AppSidebar() {
                 <Collapsible className="group/collapsible">
                     <SidebarGroup>
                         <SidebarGroupLabel asChild>
-                            <CollapsibleTrigger>
+                            <CollapsibleTrigger className="cursor-pointer">
                                 Projects <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180"/>
                             </CollapsibleTrigger>
                         </SidebarGroupLabel>

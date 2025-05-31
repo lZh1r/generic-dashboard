@@ -23,32 +23,32 @@ function NavBar() {
 
     return (
         <nav className='p-4 flex items-center justify-between'>
-            <SidebarTrigger/>
+            <SidebarTrigger className="cursor-pointer"/>
             <div className='flex items-center gap-4'>
                 <Link href={'/'}>Dashboard</Link>
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <Button variant={"outline"}>
+                        <Button className="cursor-pointer" variant={"outline"}>
                             <Sun className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"/>
                             <Moon className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"/>
                             <span className='sr-only'>Toggle theme</span>
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                        <DropdownMenuItem onClick={() => setTheme("light")}>
+                        <DropdownMenuItem className="cursor-pointer" onClick={() => setTheme("light")}>
                             Light
                         </DropdownMenuItem>
-                        <DropdownMenuItem onClick={() => setTheme("dark")}>
+                        <DropdownMenuItem className="cursor-pointer" onClick={() => setTheme("dark")}>
                             Dark
                         </DropdownMenuItem>
-                        <DropdownMenuItem onClick={() => setTheme("system")}>
+                        <DropdownMenuItem className="cursor-pointer" onClick={() => setTheme("system")}>
                             System
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
 
                 <DropdownMenu>
-                    <DropdownMenuTrigger>
+                    <DropdownMenuTrigger className="cursor-pointer">
                         <Avatar>
                             <AvatarImage src="https://avatars.githubusercontent.com/u/126076657?v=4"/>
                             <AvatarFallback><User /></AvatarFallback>
