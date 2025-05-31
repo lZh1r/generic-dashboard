@@ -1,13 +1,14 @@
 import {Card, CardContent, CardFooter, CardTitle} from "@/components/ui/card";
 import Image from "next/image";
 import {Badge} from "@/components/ui/badge";
+import {ProjectCategories} from "@/lib/lib";
 
 
 const popularContent = [
     {
         id: 1,
         title: "JavaScript Tutorial",
-        badge: "Coding",
+        badge: ProjectCategories.CODING,
         image:
             "https://cdn-icons-png.freepik.com/256/5968/5968292.png?ga=GA1.1.194998336.1747677868&semt=ais_hybrid",
         count: 4300,
@@ -15,7 +16,7 @@ const popularContent = [
     {
         id: 2,
         title: "Top Linux Distros",
-        badge: "Tech",
+        badge: ProjectCategories.TECH,
         image:
             "https://cdn-icons-png.freepik.com/256/6124/6124995.png?ga=GA1.1.194998336.1747677868&semt=ais_hybrid",
         count: 3200,
@@ -23,7 +24,7 @@ const popularContent = [
     {
         id: 3,
         title: "We Will Get Replaced",
-        badge: "AI",
+        badge: ProjectCategories.AI,
         image:
             "https://cdn-icons-png.freepik.com/256/5278/5278402.png?ga=GA1.1.194998336.1747677868&semt=ais_hybrid",
         count: 2400,
@@ -31,7 +32,7 @@ const popularContent = [
     {
         id: 4,
         title: "React Hooks Explained",
-        badge: "Coding",
+        badge: ProjectCategories.CODING,
         image:
             "https://cdn-icons-png.freepik.com/256/753/753244.png?ga=GA1.1.194998336.1747677868&semt=ais_hybrid",
         count: 1500,
@@ -39,7 +40,7 @@ const popularContent = [
     {
         id: 5,
         title: "C Programming Language",
-        badge: "Coding",
+        badge: ProjectCategories.CODING,
         image:
             "https://cdn-icons-png.freepik.com/256/9345/9345668.png?ga=GA1.1.194998336.1747677868&semt=ais_hybrid",
         count: 1200,
