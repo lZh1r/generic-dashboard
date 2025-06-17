@@ -23,6 +23,7 @@ import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/c
 import {userInfo} from "@/lib/user-info";
 import {zustandStore} from "@/lib/zustand-store";
 import {capitalize} from "@/lib/lib";
+import {useLoggedIn} from "@/lib/useLoggedIn";
 
 const formSchema = z.object({
     username: z.string().min(3, {message: "Username must be at least 3 characters long!"})
@@ -35,9 +36,7 @@ const formSchema = z.object({
 function UserInfo() {
 
     const params= useParams<{ username: string }>();
-
-    const isLoggedUser = params.username === zustandStore.getState().username;
-
+    const isLoggedUser = useLoggedIn();
     const updateUserInfo = zustandStore.getState().updateUserInfo;
 
 
@@ -49,7 +48,8 @@ function UserInfo() {
             email: "123123@gmail.com",
             workplace: "NASA",
             role: "admin",
-            displayName: capitalize(params.username)
+            displayName: capitalize(params.username),
+            status: "Stuff"
         }
     );
 

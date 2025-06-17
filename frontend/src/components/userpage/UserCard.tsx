@@ -9,6 +9,7 @@ import {CartesianGrid, LabelList, Line, LineChart, XAxis} from "recharts";
 import {Card, CardContent, CardFooter, CardTitle} from "@/components/ui/card";
 import Image from "next/image";
 import {Badge} from "@/components/ui/badge";
+import {useLoggedIn} from "@/lib/useLoggedIn";
 
 const chartData = [
     { month: "January", sales: 186},
@@ -29,7 +30,7 @@ const chartConfig = {
 function UserCard() {
 
     const params = useParams<{username: string}>();
-    const isLoggedUser = params.username === zustandStore((state) => state.username);
+    const isLoggedUser = useLoggedIn();
     const displayName = zustandStore((state) => state.displayName);
 
     return (
