@@ -14,12 +14,10 @@ import {
 import {Button} from "@/components/ui/button";
 import {useTheme} from "next-themes";
 import {SidebarTrigger} from "@/components/ui/sidebar";
-import {zustandStore} from "@/lib/zustand-store";
 
 function NavBar() {
 
     const {setTheme} = useTheme();
-    const username= zustandStore((state) => state.username);
 
     return (
         <nav className='p-4 flex items-center justify-between'>
@@ -59,7 +57,7 @@ function NavBar() {
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>
-                            <Link className="flex gap-4" href={`/user/${username}`}>
+                            <Link className="flex gap-4" href="/profile">
                                 <User /> Profile
                             </Link>
                         </DropdownMenuItem>

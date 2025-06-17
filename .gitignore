@@ -42,3 +42,5 @@ frontend/next-env.d.ts
 /.idea
 /frontend/.next/
 /frontend/node_modules/
+
+/backend/.venv
