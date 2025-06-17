@@ -19,6 +19,7 @@ export const zustandStore = create<userInfo & storeActions>((set) => ({
         email: newInfo.email,
         workplace: newInfo.workplace,
         role: newInfo.role,
+        displayName: newInfo.displayName
     })),
     updateUserStatus: (status) => set((state) => ({
         ...state,
