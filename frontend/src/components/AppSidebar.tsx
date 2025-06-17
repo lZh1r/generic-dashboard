@@ -67,10 +67,10 @@ function AppSidebar() {
                                 items.map((i) => (
                                     <SidebarMenuItem key={i.title}>
                                         <SidebarMenuButton asChild>
-                                            <a href={i.url}>
+                                            <Link href={i.url}>
                                                 <i.icon/>
                                                 <span>{i.title}</span>
-                                            </a>
+                                            </Link>
                                         </SidebarMenuButton>
                                         {
                                             i.title === "Inbox" &&
