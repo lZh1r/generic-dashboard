@@ -12,11 +12,14 @@ import {
 import {Button} from "@/components/ui/button";
 import {useState} from "react";
 import {Textarea} from "@/components/ui/textarea";
+import {zustandStore} from "@/lib/zustand-store";
+import {useLoggedIn} from "@/lib/useLoggedIn";
 
 function UserStatus() {
 
-    const [status, setStatus] = useState('Customizable Status');
-    const [textAreaContent, setTextAreaContent] = useState('');
+    const status = useLoggedIn() ? zustandStore((state) => state.status) : "Their status";
+    const updateStatus = zustandStore.getState().updateUserStatus;
+    const [textAreaContent, setTextAreaContent] = useState(status);
 
     return (
         <div className="rounded-lg bg-primary-foreground p-4">
@@ -24,7 +27,9 @@ function UserStatus() {
                 <h1 className="text-lg font-medium">Status</h1>
                 <Sheet>
                     <SheetTrigger className="cursor-pointer" asChild>
-                        <Button variant='outline'>Edit</Button>
+                        {
+                            useLoggedIn() && <Button variant='outline'>Edit</Button>
+                        }
                     </SheetTrigger>
                     <SheetContent>
                         <SheetHeader>
@@ -40,7 +45,9 @@ function UserStatus() {
                         </div>
                         <SheetFooter>
                             <SheetClose asChild>
-                                <Button className="cursor-pointer" onClick={() => setStatus(textAreaContent)} type="submit">Save changes</Button>
+                                <Button className="cursor-pointer" onClick={() => {
+                                    updateStatus(textAreaContent);
+                                }} type="submit">Save changes</Button>
                             </SheetClose>
                         </SheetFooter>
                     </SheetContent>
