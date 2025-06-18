@@ -6,6 +6,7 @@ import {ThemeProvider} from "@/components/theme-provider";
 import {SidebarProvider} from "@/components/ui/sidebar";
 import {cookies} from "next/headers";
 import {Montserrat} from "next/font/google";
+import {Toaster} from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -45,7 +46,7 @@ export default async function RootLayout({
                   <div className='px-4'>
                       {children}
                   </div>
-
+                  <Toaster/>
               </main>
           </SidebarProvider>
 

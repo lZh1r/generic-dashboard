@@ -8,6 +8,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {Button} from "@/components/ui/button";
 import {useShallow} from "zustand/react/shallow";
 import {Input} from "@/components/ui/input";
+import {toast} from "sonner";
 
 const formSchema = z.object({
     displayName: z.string().min(3, {message: "Display name must be at least 3 characters long!"}),
@@ -45,6 +46,7 @@ function PublicSettings() {
     function onSubmit(values: z.infer<typeof formSchema>) {
         const newData = {...userData, ...values};
         updateUserData(newData);
+        toast("Updated public information!");
     }
 
     return (
