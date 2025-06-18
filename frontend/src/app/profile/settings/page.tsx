@@ -13,7 +13,7 @@ function Page() {
     return (
         <div className="bg-primary-foreground p-4 rounded-2xl">
             <Tabs defaultValue={tabs.PUBLIC}>
-                <TabsList>
+                <TabsList className="mb-4">
                     <TabsTrigger value={tabs.PUBLIC}>
                         Public
                     </TabsTrigger>
