@@ -14,13 +14,13 @@ function Page() {
         <div className="bg-primary-foreground p-4 rounded-2xl">
             <Tabs defaultValue={tabs.PUBLIC}>
                 <TabsList className="mb-4">
-                    <TabsTrigger value={tabs.PUBLIC}>
+                    <TabsTrigger value={tabs.PUBLIC} className="cursor-pointer">
                         Public
                     </TabsTrigger>
-                    <TabsTrigger value={tabs.PRIVACY}>
+                    <TabsTrigger value={tabs.PRIVACY} className="cursor-pointer">
                         Privacy
                     </TabsTrigger>
-                    <TabsTrigger value={tabs.APPEARANCE}>
+                    <TabsTrigger value={tabs.APPEARANCE} className="cursor-pointer">
                         Appearance
                     </TabsTrigger>
                 </TabsList>
