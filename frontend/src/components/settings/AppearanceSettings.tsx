@@ -1,6 +1,8 @@
 function AppearanceSettings() {
     return (
-        <div></div>
+        <div className="font-medium text-lg">
+            <h1>Coming soon!</h1>
+        </div>
     );
 }
 
