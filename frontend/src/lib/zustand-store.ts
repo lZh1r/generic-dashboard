@@ -3,16 +3,22 @@ import {userInfo} from "@/lib/user-info";
 
 interface storeActions {
     updateUserInfo: (newInfo: userInfo) => void,
-    updateUserStatus: (newStatus: string) => void
+    updateUserStatus: (newStatus: string) => void,
+    updateAccountVisibility: () => void,
 }
 
-export const zustandStore = create<userInfo & storeActions>((set) => ({
+interface AccountSettings {
+    isPrivate: boolean
+}
+
+export const zustandStore = create<userInfo & storeActions & AccountSettings>((set) => ({
     username: "john",
     email: "john-verycool@email.com",
     workplace: "AI Dungeon",
     role: "admin",
     displayName: "John Brown",
     status: "Customizable status",
+    isPrivate: false,
     updateUserInfo: (newInfo) => set((state) => ({
         ...state,
         username: newInfo.username,
@@ -24,5 +30,9 @@ export const zustandStore = create<userInfo & storeActions>((set) => ({
     updateUserStatus: (status) => set((state) => ({
         ...state,
         status: status
+    })),
+    updateAccountVisibility: () => set((state) => ({
+        ...state,
+        isPrivate: !state.isPrivate
     }))
 }));
