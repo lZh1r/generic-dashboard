@@ -1,6 +1,6 @@
 "use client";
 
-import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel} from "@/components/ui/form";
+import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 import {z} from "zod";
 import {zustandStore} from "@/lib/zustand-store";
 import {useForm} from "react-hook-form";
@@ -9,6 +9,7 @@ import {Button} from "@/components/ui/button";
 import {useShallow} from "zustand/react/shallow";
 import {Input} from "@/components/ui/input";
 import {toast} from "sonner";
+import React from "react";
 
 const formSchema = z.object({
     displayName: z.string().min(3, {message: "Display name must be at least 3 characters long!"}),
@@ -60,6 +61,7 @@ function PublicSettings() {
                                 <Input placeholder={userData.displayName} {...field}/>
                             </FormControl>
                             <FormDescription>The name that everybody sees</FormDescription>
+                            <FormMessage/>
                         </FormItem>
                     )
                 }/>
@@ -71,6 +73,7 @@ function PublicSettings() {
                                 <Input placeholder={userData.username} {...field}/>
                             </FormControl>
                             <FormDescription>Username that other people can use to tag you</FormDescription>
+                            <FormMessage/>
                         </FormItem>
                     )
                 }/>
@@ -82,6 +85,7 @@ function PublicSettings() {
                                 <Input placeholder={userData.email} {...field}/>
                             </FormControl>
                             <FormDescription>Your public email for communication</FormDescription>
+                            <FormMessage/>
                         </FormItem>
                     )
                 }/>
