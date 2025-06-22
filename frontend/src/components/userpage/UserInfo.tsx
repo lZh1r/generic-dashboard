@@ -1,43 +1,17 @@
 'use client';
 
-import {redirect, useParams} from "next/navigation";
+import {useParams} from "next/navigation";
 import {Badge} from "@/components/ui/badge";
-import {
-    Sheet,
-    SheetClose,
-    SheetContent,
-    SheetDescription,
-    SheetFooter,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger
-} from "@/components/ui/sheet";
-import {Button} from "@/components/ui/button";
-import {z} from "zod";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {useForm} from "react-hook-form";
-import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 import {useEffect, useState} from "react";
-import {Input} from "@/components/ui/input";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 import {userInfo} from "@/lib/user-info";
 import {zustandStore} from "@/lib/zustand-store";
 import {capitalize} from "@/lib/lib";
 import {useLoggedIn} from "@/lib/useLoggedIn";
 
-const formSchema = z.object({
-    username: z.string().min(3, {message: "Username must be at least 3 characters long!"})
-        .max(50),
-    email: z.string().email({message: "Invalid email address!"}),
-    workplace: z.string().max(100),
-    role: z.enum(["admin", "user"]),
-});
-
 function UserInfo() {
 
     const params= useParams<{ username: string }>();
     const isLoggedUser = useLoggedIn();
-    const updateUserInfo = zustandStore.getState().updateUserInfo;
 
 
     //should be fetched from db
@@ -59,115 +33,10 @@ function UserInfo() {
         }
     }, []);
 
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
-        defaultValues: {
-            username: userData?.username,
-            email: userData?.email,
-            workplace: userData?.workplace,
-            role: userData?.role
-        },
-    });
-
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        const newData = {...userData, ...values};
-        setUserData(newData);
-        if (isLoggedUser) {
-            updateUserInfo(newData);
-            if (newData.username !== userData.username) {
-                redirect(`/user/${newData.username}`);
-            }
-        }
-    }
-
     return (
         <div className="rounded-lg bg-primary-foreground p-4">
             <div className='flex justify-between items-center'>
                 <h1 className="font-medium text-lg">User Information</h1>
-                {/*TODO: put it into a separate page*/}
-                <Sheet>
-                    <SheetTrigger asChild>
-                        <Button className="cursor-pointer" variant='outline'>Edit</Button>
-                    </SheetTrigger>
-                    <SheetContent>
-                        <SheetHeader>
-                            <SheetTitle className="mb-5">Editing Profile Info</SheetTitle>
-                            <SheetDescription asChild>
-                                <Form {...form}>
-                                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-                                        <FormField control={form.control} name="username"
-                                                   render={({field}) => (
-                                                       <FormItem>
-                                                           <FormLabel>Username</FormLabel>
-                                                           <FormControl>
-                                                               <Input placeholder={userData?.username} {...field}/>
-                                                           </FormControl>
-                                                           <FormDescription>
-                                                               Your username.
-                                                           </FormDescription>
-                                                           <FormMessage/>
-                                                       </FormItem>
-                                                   )}/>
-                                        <FormField control={form.control} name="email"
-                                                   render={({field}) => (
-                                                       <FormItem>
-                                                           <FormLabel>Email</FormLabel>
-                                                           <FormControl>
-                                                               <Input placeholder={userData?.email} {...field}/>
-                                                           </FormControl>
-                                                           <FormDescription>
-                                                               Your public email that can be used to contact you.
-                                                           </FormDescription>
-                                                           <FormMessage/>
-                                                       </FormItem>
-                                                   )}/>
-                                        <FormField control={form.control} name="workplace"
-                                                   render={({field}) => (
-                                                       <FormItem>
-                                                           <FormLabel>Work place</FormLabel>
-                                                           <FormControl>
-                                                               <Input placeholder={userData?.workplace} {...field}/>
-                                                           </FormControl>
-                                                           <FormDescription>
-                                                               Your place of work
-                                                           </FormDescription>
-                                                           <FormMessage/>
-                                                       </FormItem>
-                                                   )}/>
-                                        {/*TODO: make this available to admins only*/}
-                                        <FormField control={form.control} name="role"
-                                                   render={({field}) => (
-                                                       <FormItem>
-                                                           <FormLabel>User Role</FormLabel>
-                                                           <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                                               <FormControl>
-                                                                   <SelectTrigger className="cursor-pointer">
-                                                                       <SelectValue placeholder="Pick a role for this user" />
-                                                                   </SelectTrigger>
-                                                               </FormControl>
-                                                               <SelectContent>
-                                                                   <SelectItem className="cursor-pointer" value="user">User</SelectItem>
-                                                                   <SelectItem className="cursor-pointer" value="admin">Admin</SelectItem>
-                                                               </SelectContent>
-                                                           </Select>
-                                                           <FormDescription>
-                                                               User privileges depend on their role.
-                                                           </FormDescription>
-                                                           <FormMessage/>
-                                                       </FormItem>
-                                                   )}/>
-                                        <Button className="cursor-pointer">Submit</Button>
-                                    </form>
-                                </Form>
-                            </SheetDescription>
-                        </SheetHeader>
-                        <SheetFooter>
-                            <SheetClose asChild>
-                                <Button className="cursor-pointer" type="submit">Done</Button>
-                            </SheetClose>
-                        </SheetFooter>
-                    </SheetContent>
-                </Sheet>
             </div>
             <div className="space-y-4 mt-6 items-center">
                 <div className='flex gap-1'>
